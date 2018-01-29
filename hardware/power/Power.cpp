@@ -63,7 +63,28 @@ Return<void> Power::setInteractive(bool interactive) {
         }
     }
 
+    // Disable doubletap after turning touchscreen back on
+    if (interactive && dt2w_active) {
+        std::ofstream file("/sys/class/sec/tsp/cmd");
+        file << "aod_enable,0";
+    }
+
 out:
+    /*
+     * Before turning touchscreen off, set AOD double-tap up.
+     * We set the rectangle to the whole area of the display. This is necessary
+     * every time because the TSP resets the rectangle whenever it wakes back up
+     * - at least, this is the case on hero{2}lte.
+     * TSP also seems to not respond if doubletap is enabled before it's enabled
+     * by the system - so we just keep enabling/disabling here.
+     */
+    if (dt2w_active) {
+        std::ofstream aodenable("/sys/class/sec/tsp/cmd");
+        aodenable << "aod_enable,1";
+        std::ofstream setrect("/sys/class/sec/tsp/cmd");
+        setrect << "set_aod_rect,1440,2560,0,0";
+    }
+
     for (const std::string& interactivePath : cpuInteractivePaths) {
         set(interactivePath + "/io_is_busy", interactive ? "1" : "0");
     }
@@ -71,7 +92,7 @@ out:
     set("/sys/power/cpuhotplug/max_online_cpu", interactive ? "8" : "6");
 
     setProfile(interactive ? PowerProfile::POWER_SAVE : PowerProfile::BALANCED);
-    
+
     return Void();
 }
 
@@ -113,11 +134,10 @@ Return<void> Power::setFeature(Feature feature __unused, bool activate __unused)
         initialize();
     }
 
-#ifdef TAP_TO_WAKE_NODE
     if (feature == Feature::POWER_FEATURE_DOUBLE_TAP_TO_WAKE) {
-        set(TAP_TO_WAKE_NODE, activate ? "1" : "0");
+        activate = !!activate;
+        dt2w_active = activate;
     }
-#endif
 
     return Void();
 }

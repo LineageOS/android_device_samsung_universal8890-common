@@ -65,6 +65,7 @@ struct Power : public IPower, public ILineagePower {
     void sendBoost(int duration_us);
 
     bool initialized;
+    bool dt2w_active = false;
     PowerProfile current_profile;
     std::vector<std::string> hispeed_freqs;
     std::vector<std::string> max_freqs;
