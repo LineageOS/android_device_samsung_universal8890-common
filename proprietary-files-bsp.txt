@@ -1,0 +1,10 @@
+# Graphics
+lib/hw/hwcomposer.exynos5.so
+lib/hw/memtrack.exynos5.so
+lib/libexynosdisplay.so
+lib/libexynosutils.so
+lib/libexynosv4l2.so
+lib/libfimg.so
+lib/libhdmi.so
+lib/libhwcutils.so
+lib/libmpp.so
