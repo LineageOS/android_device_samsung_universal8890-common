@@ -18,6 +18,14 @@ ro.cmc.version=2.0
 # Dalvik dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
+# Dalvik heap
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=8m
+
 # Factory Reset Protection
 ro.frp.pst=/dev/block/persistent
 
