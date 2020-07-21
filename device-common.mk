@@ -22,6 +22,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     device/samsung/universal8890-common/overlay/lineage-sdk \
     device/samsung/universal8890-common/overlay/packages/apps/Snap
+    device/samsung/universal8890-common/overlay/hardware/samsung/AdvancedDisplay
 
 # Boot animation
 TARGET_BOOTANIMATION_PRELOAD := true
