@@ -33,6 +33,7 @@ using android::sp;
 using android::status_t;
 using android::OK;
 
+<<<<<<< HEAD
 using vendor::lineage::livedisplay::V2_0::IAdaptiveBacklight;
 using vendor::lineage::livedisplay::V2_0::implementation::AdaptiveBacklight;
 using vendor::lineage::livedisplay::V2_0::IDisplayColorCalibration;
@@ -50,6 +51,22 @@ int main() {
     sp<IDisplayModes> displayModes;
     sp<IReadingEnhancement> readingEnhancement;
     sp<ISunlightEnhancement> sunlightEnhancement;
+=======
+using vendor::lineage::livedisplay::V2_0::universal8890::AdaptiveBacklight;
+using vendor::lineage::livedisplay::V2_0::samsung::AntiFlicker;
+using vendor::lineage::livedisplay::V2_0::universal8890::DisplayColorCalibration;
+using vendor::lineage::livedisplay::V2_0::universal8890::DisplayModes;
+using vendor::lineage::livedisplay::V2_0::universal8890::ReadingEnhancement;
+using vendor::lineage::livedisplay::V2_0::universal8890::SunlightEnhancement;
+
+int main() {
+    sp<AdaptiveBacklight> adaptiveBacklight;
+    sp<AntiFlicker> antiFlicker;
+    sp<DisplayColorCalibration> displayColorCalibration;
+    sp<DisplayModes> displayModes;
+    sp<ReadingEnhancement> readingEnhancement;
+    sp<SunlightEnhancement> sunlightEnhancement;
+>>>>>>> 261efeaf5d (universal8890: livedisplay: Add anti flicker support)
     status_t status;
 
     LOG(INFO) << "LiveDisplay HAL service is starting.";
@@ -58,6 +75,13 @@ int main() {
     if (adaptiveBacklight == nullptr) {
         LOG(ERROR)
             << "Can not create an instance of LiveDisplay HAL AdaptiveBacklight Iface, exiting.";
+        goto shutdown;
+    }
+
+    antiFlicker = new AntiFlickerExynos();
+    if (antiFlicker == nullptr) {
+        LOG(ERROR)
+            << "Can not create an instance of LiveDisplay HAL AntiFlicker Iface, exiting.";
         goto shutdown;
     }
 
@@ -91,11 +115,41 @@ int main() {
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
+<<<<<<< HEAD
     status = adaptiveBacklight->registerAsService();
     if (status != OK) {
         LOG(ERROR) << "Could not register service for LiveDisplay HAL AdaptiveBacklight Iface ("
                    << status << ")";
         goto shutdown;
+=======
+    if (adaptiveBacklight->isSupported()) {
+        status = adaptiveBacklight->registerAsService();
+        if (status != OK) {
+            LOG(ERROR) << "Could not register service for LiveDisplay HAL AdaptiveBacklight Iface ("
+                       << status << ")";
+            goto shutdown;
+        }
+    }
+
+    if (antiFlicker->isSupported()) {
+        status = antiFlicker->registerAsService();
+        if (status != OK) {
+            LOG(ERROR)
+                << "Could not register service for LiveDisplay HAL AntiFlicker Iface ("
+                << status << ")";
+            goto shutdown;
+        }
+    }
+
+    if (displayColorCalibration->isSupported()) {
+        status = displayColorCalibration->registerAsService();
+        if (status != OK) {
+            LOG(ERROR)
+                << "Could not register service for LiveDisplay HAL DisplayColorCalibration Iface ("
+                << status << ")";
+            goto shutdown;
+        }
+>>>>>>> 261efeaf5d (universal8890: livedisplay: Add anti flicker support)
     }
 
     status = displayColorCalibration->registerAsService();
