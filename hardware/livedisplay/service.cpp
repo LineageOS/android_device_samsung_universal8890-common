@@ -21,6 +21,7 @@
 #include <hidl/HidlTransportSupport.h>
 
 #include "AdaptiveBacklight.h"
+#include "AntiFlicker.h"
 #include "DisplayColorCalibration.h"
 #include "DisplayModes.h"
 #include "ReadingEnhancement.h"
@@ -33,6 +34,7 @@ using android::status_t;
 using android::OK;
 
 using vendor::lineage::livedisplay::V2_0::universal8890::AdaptiveBacklight;
+using vendor::lineage::livedisplay::V2_0::universal8890::AntiFlicker;
 using vendor::lineage::livedisplay::V2_0::universal8890::DisplayColorCalibration;
 using vendor::lineage::livedisplay::V2_0::universal8890::DisplayModes;
 using vendor::lineage::livedisplay::V2_0::universal8890::ReadingEnhancement;
@@ -40,6 +42,7 @@ using vendor::lineage::livedisplay::V2_0::universal8890::SunlightEnhancement;
 
 int main() {
     sp<AdaptiveBacklight> adaptiveBacklight;
+    sp<AntiFlicker> antiFlicker;
     sp<DisplayColorCalibration> displayColorCalibration;
     sp<DisplayModes> displayModes;
     sp<ReadingEnhancement> readingEnhancement;
@@ -52,6 +55,13 @@ int main() {
     if (adaptiveBacklight == nullptr) {
         LOG(ERROR)
             << "Can not create an instance of LiveDisplay HAL AdaptiveBacklight Iface, exiting.";
+        goto shutdown;
+    }
+
+    antiFlicker = new AntiFlickerExynos();
+    if (antiFlicker == nullptr) {
+        LOG(ERROR)
+            << "Can not create an instance of LiveDisplay HAL AntiFlicker Iface, exiting.";
         goto shutdown;
     }
 
@@ -89,6 +99,16 @@ int main() {
         if (status != OK) {
             LOG(ERROR) << "Could not register service for LiveDisplay HAL AdaptiveBacklight Iface ("
                        << status << ")";
+            goto shutdown;
+        }
+    }
+
+    if (antiFlicker->isSupported()) {
+        status = antiFlicker->registerAsService();
+        if (status != OK) {
+            LOG(ERROR)
+                << "Could not register service for LiveDisplay HAL AntiFlicker Iface ("
+                << status << ")";
             goto shutdown;
         }
     }
