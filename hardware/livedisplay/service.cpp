@@ -35,6 +35,8 @@ using android::OK;
 
 using vendor::lineage::livedisplay::V2_0::IAdaptiveBacklight;
 using vendor::lineage::livedisplay::V2_0::implementation::AdaptiveBacklight;
+using vendor::lineage::livedisplay::V2_0::IAntiFlicker;
+using vendor::lineage::livedisplay::V2_0::implementation::AntiFlicker;
 using vendor::lineage::livedisplay::V2_0::IDisplayColorCalibration;
 using vendor::lineage::livedisplay::V2_0::implementation::DisplayColorCalibration;
 using vendor::lineage::livedisplay::V2_0::IDisplayModes;
@@ -46,6 +48,7 @@ using vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
 
 int main() {
     sp<IAdaptiveBacklight> adaptiveBacklight;
+    sp<IAntiFlicker> antiFlicker;
     sp<IDisplayColorCalibration> displayColorCalibration;
     sp<IDisplayModes> displayModes;
     sp<IReadingEnhancement> readingEnhancement;
@@ -58,6 +61,13 @@ int main() {
     if (adaptiveBacklight == nullptr) {
         LOG(ERROR)
             << "Can not create an instance of LiveDisplay HAL AdaptiveBacklight Iface, exiting.";
+        goto shutdown;
+    }
+
+    antiFlicker = new AntiFlicker();
+    if (antiFlicker == nullptr) {
+        LOG(ERROR)
+            << "Can not create an instance of LiveDisplay HAL AntiFlicker Iface, exiting.";
         goto shutdown;
     }
 
