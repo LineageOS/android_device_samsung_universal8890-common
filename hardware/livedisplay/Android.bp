@@ -19,6 +19,7 @@ cc_binary {
     init_rc: ["vendor.lineage.livedisplay@2.0-service.universal8890.rc"],
     srcs: [
         "AdaptiveBacklight.cpp",
+        "AntiFlicker.cpp",
         "DisplayColorCalibration.cpp",
         "DisplayModes.cpp",
         "ReadingEnhancement.cpp",
