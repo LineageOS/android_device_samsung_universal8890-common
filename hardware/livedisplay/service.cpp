@@ -35,6 +35,8 @@ using android::OK;
 
 using vendor::lineage::livedisplay::V2_0::IAdaptiveBacklight;
 using vendor::lineage::livedisplay::V2_0::implementation::AdaptiveBacklight;
+using vendor::lineage::livedisplay::V2_0::IAntiFlicker;
+using vendor::lineage::livedisplay::V2_0::implementation::AntiFlicker;
 using vendor::lineage::livedisplay::V2_0::IDisplayColorCalibration;
 using vendor::lineage::livedisplay::V2_0::implementation::DisplayColorCalibration;
 using vendor::lineage::livedisplay::V2_0::IDisplayModes;
@@ -45,11 +47,12 @@ using vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
 using vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
 
 int main() {
-    sp<IAdaptiveBacklight> adaptiveBacklight;
-    sp<IDisplayColorCalibration> displayColorCalibration;
-    sp<IDisplayModes> displayModes;
-    sp<IReadingEnhancement> readingEnhancement;
-    sp<ISunlightEnhancement> sunlightEnhancement;
+    sp<AdaptiveBacklight> adaptiveBacklight;
+    sp<AntiFlicker> antiFlicker;
+    sp<DisplayColorCalibration> displayColorCalibration;
+    sp<DisplayModes> displayModes;
+    sp<ReadingEnhancement> readingEnhancement;
+    sp<SunlightEnhancement> sunlightEnhancement;
     status_t status;
 
     LOG(INFO) << "LiveDisplay HAL service is starting.";
@@ -58,6 +61,13 @@ int main() {
     if (adaptiveBacklight == nullptr) {
         LOG(ERROR)
             << "Can not create an instance of LiveDisplay HAL AdaptiveBacklight Iface, exiting.";
+        goto shutdown;
+    }
+
+    antiFlicker = new AntiFlicker();
+    if (antiFlicker == nullptr) {
+        LOG(ERROR)
+            << "Can not create an instance of LiveDisplay HAL AntiFlicker Iface, exiting.";
         goto shutdown;
     }
 
@@ -96,7 +106,6 @@ int main() {
         LOG(ERROR) << "Could not register service for LiveDisplay HAL AdaptiveBacklight Iface ("
                    << status << ")";
         goto shutdown;
-    }
 
     status = displayColorCalibration->registerAsService();
     if (status != OK) {
