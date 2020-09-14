@@ -1,0 +1,8 @@
+service audioloader /vendor/bin/audioloader
+    user system root
+    group audio
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start audioloader
