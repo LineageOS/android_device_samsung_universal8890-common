@@ -25,7 +25,38 @@ etc/firmware/moon-dsp5-dsm.bin
 etc/firmware/moon-dsp5-dsm.wmfw
 etc/firmware/moon-dsp6-ez2-control.wmfw
 etc/firmware/moon-dsp6-lpsd-control.bin
-lib/libaudioroute.so|46fcafe8de5c4fe078ad9e9e613bc260fd137106
+
+# Audio HAL
+lib/hw/audio.playback_record.default.so:vendor/lib/hw/audio.playback_record.default.so
+lib/hw/audio.primary.universal8890.so:vendor/lib/hw/audio.primary.universal8890.so
+lib/hw/audio.tms.default.so:vendor/lib/hw/audio.tms.default.so
+lib/libpreprocessing_nxp.so:vendor/lib/libpreprocessing_nxp.so
+lib/libSamsungPostProcessConvertor.so:vendor/lib/libSamsungPostProcessConvertor.so
+lib/lib_SamsungRec_06002.so:vendor/lib/lib_SamsungRec_06002.so
+lib/lib_SoundAlive_play_plus_hal_ver126c.so:vendor/lib/lib_SoundAlive_play_plus_hal_ver126c.so
+lib/lib_SoundAlive_SRC384_ver320.so:vendor/lib/lib_SoundAlive_SRC384_ver320.so
+lib/lib_SoundBooster_hal_ver700.so:vendor/lib/lib_SoundBooster_hal_ver700.so
+lib/lib_soundaliveresampler.so:vendor/lib/lib_soundaliveresampler.so
+lib/libaudio-ril.so:vendor/lib/libaudio-ril.so
+lib/libaudioroute.so
+lib/librecordalive.so:vendor/lib/librecordalive.so
+lib/libsamsungDiamondVoice.so:vendor/lib/libsamsungDiamondVoice.so
+lib/libsecaudioinfo.so:vendor/lib/libsecaudioinfo.so
+lib/libtinyalsa.so
+lib/libunshorten.so:vendor/lib/libunshorten.so
+lib64/libtinyalsa.so
+
+# Audio Effects
+lib/lib_SoundAlive_AlbumArt_ver105.so:vendor/lib/lib_SoundAlive_AlbumArt_ver105.so
+lib/lib_SoundAlive_play_plus_ver127a.so:vendor/lib/lib_SoundAlive_play_plus_ver127a.so
+lib/lib_SoundBooster_ver710.so:vendor/lib/lib_SoundBooster_ver710.so
+vendor/lib/libHMT.so
+vendor/lib/soundfx/libaudioeffectoffload.so
+vendor/lib/soundfx/libaudiosaplus_sec.so
+vendor/lib/soundfx/libgearvr.so
+vendor/lib/soundfx/libmysound.so
+vendor/lib/soundfx/libplaybackrecorder.so
+vendor/lib/soundfx/libsamsungSoundbooster_plus.so
 
 # Bluetooth
 vendor/firmware/bcm4359C0_murata.hcd
