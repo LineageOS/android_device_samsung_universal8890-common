@@ -1,0 +1,10 @@
+# audioloader.te
+
+type audioloader, domain;
+type audioloader_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(audioloader);
+
+allow audioloader audioserver_service:service_manager find;
+allow audioloader servicemanager:binder call;
+allow audioloader audioserver:binder { call transfer };
