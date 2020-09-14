@@ -76,6 +76,7 @@ type sysfs_sec_ts, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_sec_tsp, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_sec_wlan, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_socinfo, sysfs_type, fs_type, mlstrustedobject;
+type sysfs_seiren, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_ssp, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_v4l, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_vmscan, fs_type, sysfs_type, mlstrustedobject;
