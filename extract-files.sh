@@ -64,6 +64,8 @@ sed -i -z "s/    setprop wifi.interface wlan0\n\n/    setprop wifi.interface wla
 sed -i "s/SSLv3_client_method/SSLv23_method\x00\x00\x00\x00\x00\x00/" $BLOB_ROOT/vendor/bin/hw/gpsd
 
 # Vendor separation
+sed -i "s|system/etc|vendor/etc|g" $BLOB_ROOT/lib/libaudioroute.so
+sed -i "s|system/lib|vendor/lib|g" $BLOB_ROOT/vendor/lib/hw/audio.primary.universal8890.so
 sed -i "s|system/lib|vendor/lib|g" $BLOB_ROOT/vendor/lib/libExynosOMX_Core.so
 sed -i "s|system/lib|vendor/lib|g" $BLOB_ROOT/vendor/lib64/libExynosOMX_Core.so
 sed -i "s|system/etc|vendor/etc|g" $BLOB_ROOT/vendor/lib/libfloatingfeature.so
