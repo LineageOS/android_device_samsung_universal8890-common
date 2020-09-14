@@ -1,13 +1,31 @@
 # hal_audio_default.te
 
+allow hal_audio_default seiren_device:chr_file rw_file_perms;
+
 allow hal_audio_default {
     efs_file
+    imei_efs_file
     sec_efs_file
 }:dir search;
 
-allow hal_audio_default sec_efs_file:file r_file_perms;
+allow hal_audio_default{
+    sec_efs_file
+    imei_efs_file
+}:file r_file_perms;
 
-allow hal_audio_default rild:unix_stream_socket connectto;
+allow hal_audio_default sysfs_seiren:dir search;
+allow hal_audio_default sysfs_seiren:file r_file_perms;
+
+allow hal_audio_default{
+    init
+    rild
+}:unix_stream_socket connectto;
+
+allow hal_audio_default property_socket:sock_file w_file_perms;
+
+allow hal_audio_default self:netlink_kobject_uevent_socket { bind create read setopt };
 
 # Allow hal to take wakelock
 wakelock_use(hal_audio_default)
+
+set_prop(hal_audio_default, audio_prop)
