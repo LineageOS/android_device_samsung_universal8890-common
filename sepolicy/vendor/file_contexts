@@ -2,6 +2,7 @@
 # Daemons
 #
 
+/(vendor|system/vendor)/bin/audioloader       u:object_r:audioloader_exec:s0
 /(vendor|system/vendor)/bin/mcDriverDaemon    u:object_r:tee_exec:s0
 /(vendor|system/vendor)/bin/sensorhubservice  u:object_r:sensorhubservice_exec:s0
 /(vendor|system/vendor)/bin/hw/gpsd           u:object_r:gpsd_exec:s0
@@ -232,6 +233,9 @@
 
 # SecureOS node
 /sys/devices/system/sec_os_ctrl(/.*)?             u:object_r:sysfs_sec_secureos:s0
+
+# Audio
+/sys/devices/seiren(/.*)?                         u:object_r:sysfs_seiren:s0
 
 # SSP
 /sys/devices/virtual/sensors/ssp_sensor(/.*)?     u:object_r:sysfs_ssp:s0
