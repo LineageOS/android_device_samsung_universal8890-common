@@ -16,6 +16,24 @@
       "revId": "a8849223fc3b76e006b917c6b262744196191e8c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03ab8c9_6145ef91",
+        "filename": "ramdisk/etc/fstab.samsungexynos8890",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 24387
+      },
+      "writtenOn": "2020-12-19T16:45:22Z",
+      "side": 1,
+      "message": "Yes, but kernel has been pushed directly \n\nhttps://github.com/LineageOS/android_kernel_samsung_universal8890/commit/cb7a90dbc62b123460e081ec5519b559d9269f3e",
+      "parentUuid": "c695cc9e_2b01fcfa",
+      "revId": "a8849223fc3b76e006b917c6b262744196191e8c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
