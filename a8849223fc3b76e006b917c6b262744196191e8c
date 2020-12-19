@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c695cc9e_2b01fcfa",
+        "filename": "ramdisk/etc/fstab.samsungexynos8890",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 20451
+      },
+      "writtenOn": "2020-12-19T16:41:20Z",
+      "side": 1,
+      "message": "i assume you\u0027ve picked the kernel side of this changes too? to early mount efs",
+      "revId": "a8849223fc3b76e006b917c6b262744196191e8c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
