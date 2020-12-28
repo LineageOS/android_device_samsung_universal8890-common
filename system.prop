@@ -46,6 +46,9 @@ debug.stagefright.ccodec=0
 debug.stagefright.omx_default_rank=0
 debug.stagefright.omx_default_rank.sw-audio=1
 
+# Recovery
+persist.vendor.recovery_update=false
+
 # RIL
 keyguard.no_require_sim=true
 ro.debug_level=0x494d
