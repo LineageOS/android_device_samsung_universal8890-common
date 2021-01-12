@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f1dbd34_03539a07",
+        "filename": "hardware/power/Power.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 17401
+      },
+      "writtenOn": "2021-01-12T21:03:54Z",
+      "side": 1,
+      "message": "can be removed since its not unused anymore",
+      "range": {
+        "startLine": 132,
+        "startChar": 46,
+        "endLine": 132,
+        "endChar": 55
+      },
+      "revId": "56e444c2e624fcaeb284f97318bee48d1883b030",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eb9296d_48b98de9",
+        "filename": "hardware/power/Power.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 17401
+      },
+      "writtenOn": "2021-01-12T21:03:54Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 132,
+        "startChar": 70,
+        "endLine": 132,
+        "endChar": 79
+      },
+      "revId": "56e444c2e624fcaeb284f97318bee48d1883b030",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c95da646_e5c166fb",
+        "filename": "hardware/power/Power.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 17401
+      },
+      "writtenOn": "2021-01-12T21:03:54Z",
+      "side": 1,
+      "message": "cant you just do `dt2w_active \u003d !!activate`",
+      "range": {
+        "startLine": 138,
+        "startChar": 8,
+        "endLine": 139,
+        "endChar": 31
+      },
+      "revId": "56e444c2e624fcaeb284f97318bee48d1883b030",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
