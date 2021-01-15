@@ -25,7 +25,7 @@ namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace universal8890 {
 
 using ::android::hardware::hidl_array;
 using ::android::hardware::hidl_memory;
@@ -46,7 +46,7 @@ class AdaptiveBacklight : public IAdaptiveBacklight {
     // Methods from ::android::hidl::base::V1_0::IBase follow.
 };
 
-}  // namespace samsung
+}  // namespace universal8890
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage
