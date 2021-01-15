@@ -29,7 +29,7 @@ namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace universal8890 {
 
 static constexpr const char* kBacklightPath = "/sys/class/lcd/panel/power_reduce";
 
@@ -54,7 +54,7 @@ Return<bool> AdaptiveBacklight::setEnabled(bool enabled) {
     return WriteStringToFile(enabled ? "1" : "0", kBacklightPath, true);
 }
 
-}  // namespace samsung
+}  // namespace universal8890
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage

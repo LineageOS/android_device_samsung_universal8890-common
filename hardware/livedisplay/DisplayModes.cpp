@@ -24,7 +24,7 @@ namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace universal8890 {
 
 static constexpr const char* kModePath = "/sys/class/mdnie/mdnie/mode";
 static constexpr const char* kModeMaxPath = "/sys/class/mdnie/mdnie/mode_max";
@@ -129,7 +129,7 @@ Return<bool> DisplayModes::setDisplayMode(int32_t modeID, bool makeDefault) {
 
 // Methods from ::android::hidl::base::V1_0::IBase follow.
 
-}  // namespace samsung
+}  // namespace universal8890
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage
