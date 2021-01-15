@@ -29,17 +29,10 @@ namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace implementation {
 
 static constexpr const char* kREPath = "/sys/class/mdnie/mdnie/accessibility";
 
-// Methods from ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement follow.
-bool ReadingEnhancement::isSupported() {
-    std::fstream re(kREPath, re.in | re.out);
-    return re.good();
-}
-
-// Methods from ::vendor::lineage::livedisplay::V2_0::IReadingEnhancement follow.
 Return<bool> ReadingEnhancement::isEnabled() {
     std::string contents;
 
@@ -54,9 +47,7 @@ Return<bool> ReadingEnhancement::setEnabled(bool enabled) {
     return WriteStringToFile(enabled ? "4" : "0", kREPath, true);
 }
 
-// Methods from ::android::hidl::base::V1_0::IBase follow.
-
-}  // namespace samsung
+}  // namespace implementation
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage

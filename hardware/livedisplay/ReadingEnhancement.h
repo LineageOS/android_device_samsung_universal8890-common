@@ -25,7 +25,7 @@ namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace implementation {
 
 using ::android::hardware::hidl_array;
 using ::android::hardware::hidl_memory;
@@ -37,16 +37,11 @@ using ::android::sp;
 
 class ReadingEnhancement : public IReadingEnhancement {
   public:
-    bool isSupported();
-
-    // Methods from ::vendor::lineage::livedisplay::V2_0::IReadingEnhancement follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool) override;
-
-    // Methods from ::android::hidl::base::V1_0::IBase follow.
 };
 
-}  // namespace samsung
+}  // namespace implementation
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage

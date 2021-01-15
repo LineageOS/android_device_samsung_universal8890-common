@@ -29,16 +29,10 @@ namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace implementation {
 
 static constexpr const char* kBacklightPath = "/sys/class/lcd/panel/power_reduce";
 
-bool AdaptiveBacklight::isSupported() {
-    std::fstream backlight(kBacklightPath, backlight.in | backlight.out);
-    return backlight.good();
-}
-
-// Methods from ::vendor::lineage::livedisplay::V2_0::IAdaptiveBacklight follow.
 Return<bool> AdaptiveBacklight::isEnabled() {
     std::string tmp;
     int32_t contents = 0;
@@ -54,7 +48,7 @@ Return<bool> AdaptiveBacklight::setEnabled(bool enabled) {
     return WriteStringToFile(enabled ? "1" : "0", kBacklightPath, true);
 }
 
-}  // namespace samsung
+}  // namespace implementation
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage
