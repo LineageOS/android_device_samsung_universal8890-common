@@ -17,32 +17,33 @@
 #ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_0_DISPLAYCOLORCALIBRATION_H
 #define VENDOR_LINEAGE_LIVEDISPLAY_V2_0_DISPLAYCOLORCALIBRATION_H
 
+#include <hidl/MQDescriptor.h>
+#include <hidl/Status.h>
 #include <vendor/lineage/livedisplay/2.0/IDisplayColorCalibration.h>
 
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace implementation {
 
+using ::android::hardware::hidl_array;
+using ::android::hardware::hidl_memory;
+using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-
-#define FILE_RGB "/sys/class/graphics/fb0/rgb"
+using ::android::sp;
 
 class DisplayColorCalibration : public IDisplayColorCalibration {
   public:
-    bool isSupported();
-
-    // Methods from ::vendor::lineage::livedisplay::V2_0::IDisplayColorCalibration follow.
     Return<int32_t> getMaxValue() override;
     Return<int32_t> getMinValue() override;
-    Return<void> getCalibration(getCalibration_cb _hidl_cb) override;
+    Return<void> getCalibration(getCalibration_cb resultCb) override;
     Return<bool> setCalibration(const hidl_vec<int32_t>& rgb) override;
 };
 
-}  // namespace samsung
+}  // namespace implementation
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage
