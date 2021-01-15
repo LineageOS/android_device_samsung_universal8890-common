@@ -25,7 +25,7 @@ namespace vendor {
 namespace lineage {
 namespace livedisplay {
 namespace V2_0 {
-namespace samsung {
+namespace implementation {
 
 using ::android::hardware::hidl_array;
 using ::android::hardware::hidl_memory;
@@ -38,7 +38,6 @@ using ::android::sp;
 class DisplayModes : public IDisplayModes {
   public:
     DisplayModes();
-    bool isSupported();
 
     // Methods from ::vendor::lineage::livedisplay::V2_0::IDisplayModes follow.
     Return<void> getDisplayModes(getDisplayModes_cb resultCb) override;
@@ -52,7 +51,7 @@ class DisplayModes : public IDisplayModes {
     int32_t mDefaultModeId;
 };
 
-}  // namespace samsung
+}  // namespace implementation
 }  // namespace V2_0
 }  // namespace livedisplay
 }  // namespace lineage
