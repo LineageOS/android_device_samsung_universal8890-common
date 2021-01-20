@@ -134,7 +134,10 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-impl-2.1
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
+    libion \
+    libfimg \
+    libhwc2on1adapter
 
 # Health
 PRODUCT_PACKAGES += \
@@ -315,8 +318,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libexynoscamera_shim \
-    libexynosdisplay_shim
+    libexynoscamera_shim
 
 # Stagefright
 PRODUCT_PACKAGES += \
@@ -376,6 +378,10 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Shipping API level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
+
+# call Samsung LSI board support package
+$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos8890/exynos8890.mk)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/universal8890-common/universal8890-common-vendor.mk)
