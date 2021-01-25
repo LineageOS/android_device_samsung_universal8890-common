@@ -145,10 +145,11 @@ vendor/lib64/libcsc.so
 vendor/lib64/libion_exynos.so
 vendor/lib64/egl/libGLES_mali.so
 
+# LPM - from N975FXXU6ETLL
+bin/lpm|
+
 # LPM
-bin/lpm
 lib64/libmaet.so
-lib64/libpixelflinger.so
 lib64/libsxqk_skia.so
 media/battery_error.spi
 media/battery_low.spi
