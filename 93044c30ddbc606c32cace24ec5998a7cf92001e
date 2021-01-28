@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "210d2562_8a281505",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-01-28T10:57:09Z",
+      "side": 1,
+      "message": "You forgot to add the hash.",
+      "revId": "93044c30ddbc606c32cace24ec5998a7cf92001e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
