@@ -1,14 +1,5 @@
-# /dev/ttySAC3
-type bluetooth_device, dev_type;
-
 # /dev/block/mmcblk0p[0-9] (/dev/mbin0)
 type emmcblk_device, file_type;
-
-# Radio block device
-type radio_block_device, dev_type;
-
-# Efs block device
-type efs_block_device, dev_type;
 
 # Persist block device
 type persist_block_device, dev_type;
@@ -33,9 +24,6 @@ type rfkill_device, dev_type;
 # /dev/s5p-smem
 type secmem_device, dev_type;
 
-# /dev/bbd*, /dev/ttyBCM[0-9]*
-type bbd_device, dev_type;
-
 # /dev/vfsspi
 type fingerprint_device, dev_type;
 
@@ -50,5 +38,3 @@ type seiren_device, dev_type;
 
 # GPS
 type gps_device, dev_type;
-
-type mobicore_data_file, data_file_type, core_data_file_type, file_type;

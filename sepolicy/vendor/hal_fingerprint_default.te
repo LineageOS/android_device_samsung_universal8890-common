@@ -8,7 +8,6 @@ allow hal_fingerprint_default fingerprint_device:chr_file { open read write ioct
 allow hal_fingerprint_default secmem_device:chr_file { open read write ioctl };
 
 # trust zone device
-allow hal_fingerprint_default tee_device:chr_file { open read write ioctl };
 allow hal_fingerprint_default tee:unix_stream_socket { connectto };
 
 # /data/biometrics/*
@@ -16,8 +15,8 @@ allow hal_fingerprint_default fingerprintd_data_file:dir { rmdir read write remo
 allow hal_fingerprint_default fingerprintd_data_file:file { write create read rename open getattr unlink };
 
 # /data/vendor/biometrics/*
-allow hal_fingerprint_default fingerprintd_vendor_data_file:dir { rmdir read write remove_name create open add_name search };
-allow hal_fingerprint_default fingerprintd_vendor_data_file:file { write create read rename open getattr unlink };
+allow hal_fingerprint_default biometrics_vendor_data_file:dir { rmdir read write remove_name create open add_name search };
+allow hal_fingerprint_default biometrics_vendor_data_file:file { write create read rename open getattr unlink };
 
 # Fingerprint sysfs
 allow hal_fingerprint_default sysfs_fingerprint:dir search;

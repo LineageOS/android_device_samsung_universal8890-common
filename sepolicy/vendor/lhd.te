@@ -1,8 +1,6 @@
 #### lhd
 #
 
-type lhd, domain;
-type lhd_exec, exec_type, vendor_file_type, file_type;
 type sysfs_lhd, fs_type, sysfs_type, fs_type, mlstrustedobject;
 
 allow lhd bbd_device:chr_file { read write getattr open ioctl };
@@ -19,30 +17,30 @@ allow lhd hwservicemanager_prop:file read;
 allow lhd hwservicemanager_prop:file open;
 allow lhd hwservicemanager_prop:file getattr;
 
-allow lhd gps_vendor_file:dir search;
+allow lhd gps_vendor_data_file:dir search;
 
-allow lhd gps_vendor_file:file write;
+allow lhd gps_vendor_data_file:file write;
 
 allow lhd hwservicemanager:binder call;
-allow lhd gps_vendor_file:file open;
+allow lhd gps_vendor_data_file:file open;
 allow lhd system_suspend_hwservice:hwservice_manager find;
 
-allow lhd gps_vendor_file:file lock;
+allow lhd gps_vendor_data_file:file lock;
 
-allow lhd gps_vendor_file:fifo_file { read write };
+allow lhd gps_vendor_data_file:fifo_file { read write };
 allow lhd sysfs_sec_gps:dir search;
 allow lhd sysfs_sec_sensorhub:dir search;
-allow lhd gps_vendor_file:file { append read };
+allow lhd gps_vendor_data_file:file { append read };
 
-allow lhd gps_vendor_file:dir write;
-allow lhd gps_vendor_file:fifo_file open;
+allow lhd gps_vendor_data_file:dir write;
+allow lhd gps_vendor_data_file:fifo_file open;
 allow lhd sysfs_sec_gps:lnk_file read;
 allow lhd sysfs_lhd:dir search;
 allow lhd sysfs_lhd:file { read write };
 allow lhd sysfs_lhd:file open;
-allow lhd gps_vendor_file:dir add_name;
-allow lhd gps_vendor_file:file create;
-allow lhd gps_vendor_file:fifo_file create;
+allow lhd gps_vendor_data_file:dir add_name;
+allow lhd gps_vendor_data_file:file create;
+allow lhd gps_vendor_data_file:fifo_file create;
 allow lhd sysfs_sec_sensorhub:file { open read write };
 
 # Allow hal to take wakelock
