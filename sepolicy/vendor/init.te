@@ -43,26 +43,21 @@ allow init sysfs_camera:filesystem associate;
 # WiFi firmware permissions
 allow init sysfs_wifi:file setattr;
 
-# Input devices
-allow init sysfs_input:file { rw_file_perms setattr };
-
 # BT permissions
 allow init sysfs_bluetooth_writable:file setattr;
 
 # GPS permissions
-allow init sysfs_gps:lnk_file read;
-allow init sysfs_gps:file { rw_file_perms setattr };
+allow init sysfs_gps_writable:lnk_file read;
+allow init sysfs_gps_writable:file { rw_file_perms setattr };
 allow init gps_data_file:fifo_file write;
 allow init gps_data_file:file lock;
 allow init gps_device:chr_file { open read write };
-allow init gps_vendor_file:fifo_file write;
-allow init gps_vendor_file:file lock;
+allow init gps_vendor_data_file:fifo_file write;
+allow init gps_vendor_data_file:file lock;
 allow init gps_device:chr_file ioctl;
 
 # CPU permissions
 allow init sysfs_devices_system_cpu:file rw_file_perms;
-
-allow init tee_device:chr_file { write ioctl };
 
 # umts permissions
 allow init mif_device:chr_file rw_file_perms;
@@ -91,7 +86,6 @@ allow init sysfs_graphics:file { rw_file_perms setattr };
 allow init sysfs_light:file { rw_file_perms setattr };
 allow init sysfs_light:lnk_file { rw_file_perms setattr };
 allow init sysfs_mdnie:file setattr;
-allow init sysfs_sensors:file { rw_file_perms setattr };
 allow init sysfs_sensors:lnk_file read;
 allow init sysfs_multipdp:file setattr;
 allow init sysfs_modem:file { setattr open write };
@@ -102,7 +96,6 @@ allow init sysfs_sec_tsp:file setattr;
 allow init sysfs_sec_tsp:lnk_file read;
 allow init sysfs_batteryinfo:file { open setattr write };
 allow init sysfs_sec_barcode_emul:file setattr;
-allow init sysfs_sec_key:file { open setattr write };
 allow init sysfs_sec_led:file setattr;
 allow init sysfs_sec_touchkey:file setattr;
 allow init sysfs_sec_touchkey:lnk_file read;

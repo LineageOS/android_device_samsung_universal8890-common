@@ -6,7 +6,6 @@ allow hal_light_default sysfs_graphics:file rw_file_perms;
 
 allow hal_light_default sysfs_input:dir search;
 allow hal_light_default sysfs_input:lnk_file read;
-allow hal_light_default sysfs_input:file rw_file_perms;
 
 allow hal_light_default sysfs_sec_led:dir search;
 allow hal_light_default sysfs_sec_led:file { getattr open write };

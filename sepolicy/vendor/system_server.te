@@ -38,7 +38,6 @@ allow system_server debugfs:dir r_dir_perms;
 allow system_server sensor_device:chr_file rw_file_perms;
 allow system_server baro_delta_factoryapp_efs_file:file r_file_perms;
 allow system_server sensor_factoryapp_efs_file:file r_file_perms;
-allow system_server sysfs_sensors:file rw_file_perms;
 
 # used to access the fwk_sensor_hwservice over hwbinder
 binder_call(system_server, hal_camera_default)
@@ -50,9 +49,6 @@ get_prop(system_server, bluetooth_prop)
 
 # Grpahics sysfs
 allow system_server sysfs_graphics:file rw_file_perms;
-
-# Input sysfs
-allow system_server sysfs_input:file rw_file_perms;
 
 allow system_server proc_input_devices:file r_file_perms;
 

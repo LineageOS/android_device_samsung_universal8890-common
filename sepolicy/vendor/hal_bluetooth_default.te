@@ -1,5 +1,5 @@
 # /dev/ttySAC3
-allow hal_bluetooth_default bluetooth_device:chr_file rw_file_perms;
+allow hal_bluetooth_default bt_device:chr_file rw_file_perms;
 
 # /efs
 allow hal_bluetooth_default efs_file:dir search;
