@@ -25,7 +25,20 @@ etc/firmware/moon-dsp5-dsm.bin
 etc/firmware/moon-dsp5-dsm.wmfw
 etc/firmware/moon-dsp6-ez2-control.wmfw
 etc/firmware/moon-dsp6-lpsd-control.bin
-lib/libaudioroute.so|46fcafe8de5c4fe078ad9e9e613bc260fd137106
+
+# Audio HAL - from A600FJXU8CUE2
+vendor/lib/hw/audio.primary.exynos7870.so:vendor/lib/hw/audio.primary.universal8890.so|a643493e711bc3569832d7d5025d4e62fc478477
+vendor/lib/libSamsungPostProcessConvertor.so|bc4aedeecb6fba62d15de0be961c15e44b6db8a3
+vendor/lib/lib_SoundAlive_SRC384_ver320.so|3ab06abd04a8ab289b5065d4d9d3bbff53be2794
+vendor/lib/lib_soundaliveresampler.so|a5c987cd025459fddd888400d653d24bd9a4c861
+vendor/lib/libaudio-ril.so|46e696ea5c5cd88e75d49ac88e160f0c9143ffff
+vendor/lib/libaudioroute.so:lib/libaudioroute.so|9a175a52a44b5ffba7fd2df7083545d486a11f23
+vendor/lib/libpreprocessing_nxp.so|6b937ee70f1bb7033652e0489ebca1a99a528174
+vendor/lib/librecordalive.so|03aee0d768816848b9ae77bc3bd83f03994b0785
+vendor/lib/libsamsungDiamondVoice.so|6d6cf1e77dada1fa8d3b422e18296aadf4079fa4
+vendor/lib/lib_SamsungRec_06004.so|3738575505a0b92f9f365ad364908a6efa5ff1c1
+vendor/lib/libsecaudioinfo.so|b8a36cb8f14d7ba44774dd1276a1f4057617133d
+vendor/lib/libtinyalsa.so:lib/libtinyalsa.so|28ad3f1e28a6dd3bc98319f044e6d0ba463a9b4c
 
 # Bluetooth
 vendor/firmware/bcm4359C0_murata.hcd
