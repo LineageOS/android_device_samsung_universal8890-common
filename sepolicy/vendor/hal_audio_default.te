@@ -2,12 +2,18 @@
 
 allow hal_audio_default {
     efs_file
+    imei_efs_file
     sec_efs_file
 }:dir search;
 
-allow hal_audio_default sec_efs_file:file r_file_perms;
+allow hal_audio_default {
+    imei_efs_file
+    sec_efs_file
+}:file r_file_perms;
 
 allow hal_audio_default rild:unix_stream_socket connectto;
+
+get_prop(hal_audio_default, vendor_radio_prop)
 
 # Allow hal to take wakelock
 wakelock_use(hal_audio_default)
