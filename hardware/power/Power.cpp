@@ -70,7 +70,7 @@ out:
 
     set("/sys/power/cpuhotplug/max_online_cpu", interactive ? "8" : "6");
 
-    setProfile(interactive ? PowerProfile::POWER_SAVE : PowerProfile::BALANCED);
+    setProfile(interactive ? PowerProfile::BALANCED : PowerProfile::POWER_SAVE);
 
     return Void();
 }
@@ -179,9 +179,6 @@ void Power::findInputNodes() {
 }
 
 void Power::setProfile(PowerProfile profile) {
-    if (current_profile == profile) {
-        return;
-    }
 
     switch (profile) {
         case PowerProfile::POWER_SAVE:
