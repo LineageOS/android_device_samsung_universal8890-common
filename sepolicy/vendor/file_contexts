@@ -2,6 +2,7 @@
 # Daemons
 #
 
+/(vendor|system/vendor)/bin/audioloader       u:object_r:audioloader_exec:s0
 /(vendor|system/vendor)/bin/mcDriverDaemon    u:object_r:tee_exec:s0
 /(vendor|system/vendor)/bin/sensorhubservice  u:object_r:sensorhubservice_exec:s0
 /(vendor|system/vendor)/bin/hw/gpsd           u:object_r:gpsd_exec:s0

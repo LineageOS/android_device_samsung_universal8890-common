@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    audioloader \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
