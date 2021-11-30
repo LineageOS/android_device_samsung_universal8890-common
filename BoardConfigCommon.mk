@@ -62,6 +62,9 @@ BOARD_USES_DT := true
 # Display
 TARGET_SCREEN_DENSITY := 560
 
+## ELF
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 # Filesystem
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -190,6 +193,7 @@ include device/lineage/sepolicy/exynos/sepolicy.mk
 BOARD_SEPOLICY_TEE_FLAVOR := mobicore
 include device/samsung_slsi/sepolicy/sepolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # Shims
 TARGET_LD_SHIM_LIBS += \
