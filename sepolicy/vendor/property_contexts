@@ -4,6 +4,7 @@ persist.vendor.hifills.          u:object_r:vendor_camera_prop:s0
 persist.vendor.dualCam.          u:object_r:vendor_camera_prop:s0
 persist.vendor.camera.           u:object_r:vendor_camera_prop:s0
 vendor.hal.camera.               u:object_r:vendor_camera_prop:s0
+vendor.samsung.                  u:object_r:vendor_camera_prop:s0
 
 # HWC
 vendor.ddk.set.afbc              u:object_r:vendor_hwc_prop:s0
@@ -15,6 +16,7 @@ persist.vendor.nfc.log.index     u:object_r:vendor_nfc_prop:s0
 
 # Radio
 persist.ril.interfaceconf.failed u:object_r:radio_prop:s0
+ro.multisim.                     u:object_r:vendor_radio_prop:s0
 
 # Wifi
 wifi.active.interface            u:object_r:wifi_prop:s0
